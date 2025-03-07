@@ -27,6 +27,7 @@ export const playlistStyles = sva({
             fontWeight: 600
         },
         author: {
+            display: 'flex',
             fontSize: '13px',
             opacity: 0.8
         },

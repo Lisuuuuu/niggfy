@@ -1,13 +1,15 @@
 import { playlistStyles } from "./styles";
-import { IconPlayerPlayFilled } from "@tabler/icons-react";
+import { IconPlayerPlayFilled, IconPointFilled } from "@tabler/icons-react";
+
 
 export type PlaylistProps = {
     cover: string;
     title: string;
     author: string;
+    type: string;
 }
 
-export default function Playlist({ cover, title, author }: PlaylistProps) {
+export default function Playlist({ cover, title, author, type}: PlaylistProps) {
     const classes = playlistStyles();
     return (
         <div className={classes.container}>
@@ -19,7 +21,9 @@ export default function Playlist({ cover, title, author }: PlaylistProps) {
             </div>
             <div>
                 <div className={classes.title}>{title}</div>
-                <div className={classes.author}>{author}</div>
+                <div className={classes.author}>
+                    {type} <IconPointFilled size={20} /> {author}
+                    </div>
             </div>
         </div>
     )
