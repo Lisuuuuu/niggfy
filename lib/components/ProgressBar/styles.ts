@@ -3,13 +3,15 @@ import { sva } from "@/styled-system/css";
 
 
 export const ProgressBarStyles = sva({
-    slots: ['progress', 'dot', 'group'],
+    slots: ['progress', 'dot', 'time', 'container'],
 
 
-    //backgroundColor: '#00ff3c'
+
 
 
     base: {
+
+
 
         progress: {
             width: '500px',
@@ -20,6 +22,7 @@ export const ProgressBarStyles = sva({
             justifyContent: 'center',
             alignItems: 'center',
             position: 'relative',
+
 
             _before: {
                 content: "''",
@@ -34,8 +37,13 @@ export const ProgressBarStyles = sva({
 
             },
 
-            '&:hover [data-dot]': {
-                display: 'block',
+            _hover: {
+                '--dot-display': 'block',
+                _before: {
+                    backgroundColor: '#00ff3c'
+                },
+                cursor: 'pointer',
+
             }
 
         },
@@ -45,15 +53,28 @@ export const ProgressBarStyles = sva({
             width: '14px',
             borderRadius: '10px',
             backgroundColor: 'white',
-
             position: 'absolute',
-            display: 'none',
+            display: 'var(--dot-display, none)',
+            transform: 'translate(-50%, -50%)',
+            top: '50%'
 
 
 
 
 
+        },
+        time: {
+            display: 'flex',
+            justifyContent: 'space-between',
+            marginBottom: '8px',
+            fontSize: 'sm',
+        },
+        container: {
 
+            width: '100%',
+            maxWidth: '500px',
+
+            margin: '0 auto',
         },
 
 
